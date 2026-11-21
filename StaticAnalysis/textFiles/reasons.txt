@@ -1,0 +1,17 @@
+Redundant local variables (2 warnings) :
+1 and 2. Removed setting firstLetter to the return value of the function immediately, instead of assigning it to a temp variable than assigning firstLetter to that tempVariable. This is a good revision to make since we are using less code, and and don't use redundant variables which make the code harder to read and understand.
+
+Probable bugs (3) :
+1. Condition reader1 !- == null is always true, Fix : removed if condition and empty else block, so that we have more readable code, and less overhead.
+2. Variable 'newSentence' initializer 'null' is redundant, Fix : remove =null value and just set List<String> newSentence, removed redundant code
+3. Variable 'howManyWords' initializer '0' is redundant, Fix : removed the =0; assignment, is better since =0 is redundant and won't catch bugs if the function that actually assigns the error fails to return.
+
+Verbose or redundant code constructs (1)
+1. return is unnecessary for void statement, Fix : delete return, good since its redundant and will never execute
+
+Java Language level migration aids (2 warnings)
+1. Explicit class declaration can be converted into a compact source file, fix : use the auto compact feature, removes unnecessary class declaration and saves space, makes code more readable
+
+Code maturity (1 warning) :
+1. Call to printStackTrace() should probably be replaced with more robust logging : Fix changed the catch block to throw a new RuntimeException, better since we should be catching errors istead of just using a print debugging tool, if the code is past the initial stages of debugging, and we know it works. Could be replaced with a better error message if you actually wrote the code here
+
